@@ -1,0 +1,35 @@
+{
+  "name": "Bootstrap CMS",
+  "version": "1.0.0",
+  "description": "CMS built with PHP & Bootstrap",
+  "main": "index.php",
+  "scripts": {
+    "watch": "node-sass style/scss/main.scss style/css/style.css -w",
+    "compile:sass": "node-sass style/scss/main.scss style/css/style.comp.css",
+    "concat:css": "concat -o style/css/style.concat.css style/css/icon-font.css style/css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b \"last 10 versions\" style/css/style.concat.css -o style/css/style.prefix.css",
+    "compress:css": "node-sass style/css/style.prefix.css style/css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huntertrammell/Bootstrap-CMS.git"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.5.1",
+    "concat": "^1.0.3",
+    "css-loader": "^2.1.1",
+    "node-sass": "^4.11.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^6.1.2",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^0.23.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huntertrammell/Bootstrap-CMS/issues"
+  },
+  "homepage": "https://github.com/huntertrammell/Bootstrap-CMS#readme"
+}
