@@ -5,10 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Bootstrap CMS | Home</title>
+        <link rel="stylesheet" href="style/css/style.css">
     </head>
     <body>
-        <?php $connection = mysqli_connect("localhost:8889", "root", "root", "bootstrap_cms");?>
+        <?php include 'includes/db.php';?>
         <h1>Hello World</h1>
-        <?php echo var_dump($connection); ?>
+        <?php include 'includes/posts/get.php'; ?>
     </body>
 </html>
