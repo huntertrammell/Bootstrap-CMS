@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.82.0">
-    <title>Dashboard | Bootstrap CMS</title>
+    <title>Posts | Bootstrap CMS</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
     <link href="../style/css/style.css" rel="stylesheet">
     <style>
@@ -62,7 +62,7 @@
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Dashboard</h1>
+            <h1 class="h2">Posts</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group me-2">
                 <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -74,6 +74,27 @@
               </button>
             </div>
           </div>
+          <section>
+          <?php
+            if(isset($_POST['create_post'])) :
+                $title = $_POST['title'];
+                $article = $_POST['article'];
+
+                $query = "INSERT INTO posts(title, body) VALUES ('{$title}', '{$article}')";
+            endif;
+          ?>
+            <form action="" method="post" enctype='multipart/form-data'>
+                <div class="mb-3">
+                    <label for="exampleInputTitle" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="exampleInputTitle" name="title">
+                </div>
+                <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Article</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="article"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" name="create_post">Create Post</button>
+            </form>
+          </section>
         </main>
       </div>
     </div>
